@@ -1,0 +1,822 @@
+/* General styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #e3dbdb; /* Light grey background */
+}
+
+/* Header styles */
+header {
+    color: white;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem 0;
+    z-index: 1000; /* Ensure the header is above other content */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+nav li {
+    margin: 0 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative; /* For the absolute positioning of the dropdown content */
+}
+
+.dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    left: 50%; /* Center the dropdown */
+    transform: translateX(-50%); /* Center the dropdown adjustment */
+    background-color: #f9f9f9;
+    min-width: 160px;
+    margin-top: 20px; /* Increase if needed to position the tail */
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 10px;
+    z-index: 100;
+}
+
+.dropdown .dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block; /* Stack links on top of each other */
+    border-bottom: 1px solid #eaeaea; /* Add a border to separate items */
+}
+
+/* Remove border from the last item */
+.dropdown .dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown .dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown .dropdown-content::after, .dropdown .dropdown-content::before {
+    content: "";
+    position: absolute;
+    top: -20px; /* Position the arrow above the dropdown */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    z-index: 100;
+}
+
+/* Creates a larger shadow to ensure the smaller arrow is on top */
+.dropdown .dropdown-content::before {
+    border-color: transparent transparent #eaeaea transparent;
+    top: -22px; /* Position it slightly above the after pseudo-element */
+}
+
+/* Creates the arrow itself */
+.dropdown .dropdown-content::after {
+    border-color: transparent transparent #f9f9f9 transparent;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 800px; /* Adjust based on your image's aspect ratio */
+    background-image: url('https://wallpapercave.com/wp/wp9024458.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-top: 50px; /* Height of the nav bar */
+}
+
+.hero-section h1 {
+    color: rgb(121, 223, 175);
+    text-align: center;
+    font-size: 2.5em;
+    padding-top: 20%;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    margin-top: -50px;
+}
+
+.search-form {
+    position: absolute;
+    top: 70%; /* Adjust the position to move it down */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-form input[type=text], .search-form select {
+    margin-right: 10px; /* Add margin between form elements */
+    padding: 10px;
+    width: 200px; /* Adjust as needed */
+    border: 1px solid #6b6868;
+    border-radius: 5px;
+}
+
+.search-form input[type=submit] {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: rgb(91, 85, 85);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sponsors-section ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: #3b3737;
+}
+
+.sponsors-section ul li {
+    margin: 0 1rem;
+}
+
+.sponsors-section ul li img {
+    width: 150px;
+    height: 100px;
+    object-fit: contain; /* Keeps the aspect ratio of the image */
+}
+.services-section {
+    text-align: center; /* Center the content */
+    padding: 50px 0;
+}
+
+.category-title {
+    text-transform: uppercase;
+    color: #888;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.service-card {
+    width: 250px; /* Fixed width */
+    padding: 20px;
+    background-color: #cecccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-card img {
+    width: 80px; /* Fixed image size */
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    color: #333;
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.service-card:hover {
+    transform: translateY(-10px); /* Lift card on hover */
+}
+
+.honeymoon-specials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    position: relative; /* Needed for absolute positioning of images */
+}
+
+.image-gallery {
+    position: absolute;
+    left: 0;
+}
+
+.image-gallery .large-image,
+.image-gallery .medium-image,
+.image-gallery .small-image {
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover; /* Ensures the images cover the area without stretching */
+    /* Remove position absolute and z-index if they're no longer overlapping */
+}
+
+/* Position the medium and small images relative to the large image */
+.image-gallery .medium-image {
+    position: absolute;
+    top: 75px; /* Adjust as necessary */
+    left: 120px; /* Adjust as necessary */
+}
+
+.image-gallery .small-image {
+    position: absolute;
+    top: 150px; /* Adjust as necessary */
+    left: 240px; /* Adjust as necessary */
+}
+
+/* Stack the images using negative margin */
+.image-gallery img {
+    margin-right: -50px; /* Adjust as needed */
+}
+.content {
+    max-width: 600px;
+    margin-left: 300px; /* Original left margin */
+    text-align: left;
+    margin-left: calc(300px - 20px); /* Move the entire content a bit to the left */
+}
+
+.content-title {
+    font-size: 1rem;
+    color: #888888;
+    margin-bottom: 10px;
+}
+
+.content h2 {
+    font-size: 2.5rem;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.content p {
+    color: #666666;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #ff6b6b; /* Adjust color as needed */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 1rem;
+}
+.container {
+    display: flex; /* or 'display: grid;' */
+    flex-direction: column; /* not needed for grid */
+    gap: 30px; /* Space between children */
+  }
+/* part 3 css */
+
+.booking-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px;
+}
+
+.booking-info {
+    max-width: 600px;
+}
+
+.tagline {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.booking-info h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.booking-steps {
+    width: 79px; /* Set width to 29 pixels */
+    height: 29px; /* Set height to 29 pixels */
+    margin-bottom: 5px;
+}
+
+.booking-steps li {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align items to the start */
+    margin-bottom: 40spx;
+    width: 400px;
+}
+
+.booking-steps img {
+    width: 60px;  /* Set width to 20 pixels for a very small icon */
+    height: 40px;  /* Set height to 20 pixels for a very small icon */
+     /* Adjust the right margin as needed */
+    margin-bottom: 5px;
+
+}
+.booking-steps strong,
+.booking-steps p {
+    /* No specific positioning needed, they will flow in the flex context */
+}
+
+/* Remove any additional margin or padding that might create unwanted space */
+.booking-steps strong {
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.booking-steps p {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    color: #666;
+}
+.featured-trip {
+    width: 300px; /* Adjust as needed */
+    position: relative;
+}
+
+.featured-trip img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Adjust as needed */
+}
+
+.trip-info {
+    position: absolute;
+    top: 50%; /* Adjust as needed */
+    right:0; /* Adjust as needed */
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.trip-info h2 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.trip-info p {
+    color: #666;
+}
+
+.interest span {
+    display: block;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+
+.promotion-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+.promotion-content {
+    max-width: 40%;
+}
+
+.promotion-content h1 {
+    color: #333;
+    font-size: 2.5rem;
+}
+
+.promotion-content p {
+    color: #666;
+}
+
+button {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.promotion-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tour-image {
+    position: relative;
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+}
+
+.base-layer {
+    z-index: 1; /* or another lower value */
+    position: relative; /* Required for z-index to take effect */
+}
+
+/* Tour image and price badge positioning */
+.tour-image {
+    position: relative; /* Keep this relative for positioning inner elements */
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+}
+
+
+.tour-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.price {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: #ff6b6b;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+.promotion-background .background-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px; /* Adjust as needed */
+    height: auto;
+    border-radius: 50%;
+    z-index: -1;
+}
+.image-name {
+    display: block; /* Makes it a block-level element to take its own line */
+    text-align: center; /* Centers the text below the image */
+    color: #333;
+    font-size: 0.9rem; /* Adjust font size as needed */
+    margin-top: 10px; /* Increased space between the image and the name */
+    margin-bottom: 20px; /* Added space below the name */
+}
+
+
+
+
+.promotion-container {
+    display: flex;
+    width: 100%;
+    row-gap: 120px;
+}
+
+.promotion {
+    flex: 1;
+    position: relative;
+    height: 300px; /* Adjust to your preference */
+    color: white;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Space between items */
+}
+
+.nature {
+    background-image: url('https://corporate.walmart.com/content/dam/corporate/images/global-responsibility/sustainability/planet/nature/businessfornature-banner.png'); /* Replace with your image path */
+}
+
+.cities {
+    background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2l0eXxlbnwwfHwwfHx8MA%3D%3D'); /* Replace with your image path */
+    margin-left: 20px; /* Space between the two columns */
+}
+
+.promo-label {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+h2 {
+    background-color: rgba(200, 195, 195, 0.5); /* Semi-transparent background for text */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e6e6e6;
+}
+
+
+
+.heading h2 {
+    text-align: center;
+    color: red;
+}
+
+.heading h1 {
+    text-align: center;
+}
+
+
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Adjust the space between cards */
+}
+
+.card {
+    width: 300px; /* Adjust the width as needed */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image {
+    width: 100%; /* Ensures image spans the full container width */
+    height: 200px; /* Set a fixed height for all images */
+    object-fit: cover; /* Ensures image covers the area without distorting aspect ratio */
+    object-position: center; /* Rounded corners at the top */
+}
+
+.card-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure the card-info takes up the remaining space */
+}
+
+.card-info h3 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.location, .duration, .people, .rating, .price {
+    margin: 5px 0;
+    color: #555;
+}
+.description {
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+/* ... (other styles) ... */
+
+.price-container {
+    margin-top: auto; /* Pushes the price container to the bottom */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-price {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-right: 10px; /* Space between new price and old price */
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #95a5a6;
+}
+
+.btn-explore {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 15px; /* Space above the button */
+}
+
+
+
+.promotion-section {
+    text-align: center;
+    background: #ececec; /* Light grey background */
+    padding: 2rem;
+  }
+  
+  .testimonial-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background: #f7f7f7; /* Slightly different grey for container */
+  }
+  
+  .testimonial-header h2 {
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .testimonial-navigation {
+    display: flex;
+    align-items: center;
+  }
+  
+  .testimonial-arrow {
+    color: #333;
+    cursor: pointer;
+    padding: 1rem;
+    user-select: none;
+    font-size: 2rem; /* Adjust size as needed */
+  }
+  
+  .left-arrow {
+    margin-right: 1rem;
+  }
+  
+  .right-arrow {
+    margin-left: 1rem;
+  }
+  
+  .testimonial {
+    background: #fff; /* White background for the testimonial */
+    padding: 2rem;
+    margin: 1rem;
+    position: relative;
+    flex-grow: 1;
+  }
+  
+  .testimonial-quote {
+    font-style: italic;
+    color: #555;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .author-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    border: 3px solid #f7f7f7; /* Border color matches testimonial container */
+  }
+  
+  .author-name {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* ... your existing CSS after this section ... */
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    .testimonial-navigation {
+      flex-direction: column;
+    }
+  
+    .left-arrow, .right-arrow {
+      font-size: 1.5rem;
+    }
+  
+    .testimonial {
+      margin: 0.5rem;
+    }
+  }
+
+
+
+
+
+
+
+  .site-footer {
+    color: #777;
+    background-color: #f9f9f9;
+    padding: 20px 0;
+    position: relative;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  
+  .footer-section h2, .footer-section h3 {
+    color: #333;
+  }
+  
+  .footer-section h2 {
+    margin-bottom: 10px;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li a {
+    color: #777;
+    text-decoration: none;
+  }
+  
+  .footer-section {
+    margin: 10px;
+  }
+  
+  .newsletter input[type="email"] {
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .newsletter button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #e67e22;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .social-links {
+    margin: 10px 0;
+  }
+  
+  .social-icon {
+    text-decoration: none;
+    color: #777;
+    margin-right: 5px;
+    /* Add more styling for social icons */
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footer-section {
+      margin-bottom: 20px;
+    }
+  }
